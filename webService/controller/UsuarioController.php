@@ -1,18 +1,40 @@
 <?php
-require_once '../model/Controller.php';
-require_once '../model/Usuario.php';
+global $App;
+$App->incluir('model/Controller');
+$App->incluir('model/Usuario');
+
 class UsuarioController extends Controller{
-	protected $usuarios;
+	public $usuarios;
 	
-	private function UsuarioController(){
-		parent:Controller();
+	function __construct(){
+		parent::__construct();
 		
 		$this->usuarios = new Usuario();
 	}
 	public function index(){
-		$_REQUEST['usuarios'] = $this->usuarios->getPessoas();
-		
-		require_once '../view/usuario.php';
+		$this->app->view('usuario', $this->usuarios->getPessoas());
+	}
+	public function addPessoa(){
+		$dados = $this->_get('pessoa');
+		if (!empty($dados)){
+			$dados = array(json_decode($dados, true));
+			$this->usuarios->setPessoas($dados);
+
+			$this->app->redireciona("usuario");
+		}
+		else{
+			$this->usuarios->Erro(null, "0x0000000001");
+		}
+	}
+	public function addUsuario(){
+		$dados = $this->_get('usuario');
+		if (!empty($dados)){
+			$dados = array(json_decode($dados, true));
+			$this->usuarios->setUsuarios($dados);
+		}
+		else{
+			$this->usuarios->Erro(null, "0x0000000001");
+		}
 	}
 }
 ?>

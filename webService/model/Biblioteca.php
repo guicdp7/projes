@@ -1,7 +1,10 @@
 <?php
 class Biblioteca{
-	public appLink = "projex.esy.es";
-	
+	public $appLink;
+
+	function __construct(){
+		$this->appLink = "http://projes.esy.es/";
+	}	
 	public function getLink($classe, $acao = 'index', $parametros = array()){
 		$link = $this->appLink."?c=$classe";
 		if (!empty($acao)){
@@ -14,6 +17,9 @@ class Biblioteca{
 		}
 		return $link;
 	}
+	public function incluir($classe){
+		require_once $_SERVER['DOCUMENT_ROOT'].'/'.$classe.".php";
+	}
 	public function redireciona($para, $parametros = array()){
 		$classe; $acao = null;
 		if (gettype($para) == "string"){
@@ -24,6 +30,11 @@ class Biblioteca{
 			$acao = $para['a'];
 		}
 		header('location: '.$this->getLink($classe, $acao, $parametros));
+		exit;
+	}
+	public function view($classe, $dados){
+		$_REQUEST[$classe] = $dados;
+		$this->incluir("view/$classe");
 	}
 }
 ?>

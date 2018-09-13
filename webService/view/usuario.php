@@ -1,5 +1,5 @@
 <?php 
-$usuarios = $_REQUEST['usuarios'];
+$usuarios = $_REQUEST['usuario'];
 ?><!DOCTYPE html>
 <html lang="pt-br">
 <head><title>Usuarios</title></head>
