@@ -7,22 +7,16 @@ class Controller{
 	function __construct(){
 		global $App;
 
-		$this->app = $App;
+		$this->app = $App;	
 	}
-	public function _get($chave){
-		if (isset($_GET[$chave])){
-			return $_GET[$chave];
+	public function view($classe, $dados){
+		if ($this->app->tipoRetorno == "json"){
+			echo json_encode(array($classe=>$dados));
+			exit;
 		}
 		else{
-			return "";
-		}
-	}
-	public function _post($chave){
-		if (isset($_POST[$chave])){
-			return $_POST[$chave];
-		}
-		else{
-			return "";
+			$_REQUEST[$classe] = $dados;
+			$this->app->incluir("view/$classe");
 		}
 	}
 }

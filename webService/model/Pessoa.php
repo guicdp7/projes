@@ -12,8 +12,7 @@ class Pessoa extends Banco{
 	public function setPessoas($dados){
 		foreach ($dados as $pessoa){
 			array_push($pessoa, array('chave'=>'ip_cadastro', 'valor'=>$this->getUserIP()));
-			echo json_encode($pessoa);
-			//$this->insert("pessoas", $pessoa);
+			$this->insert("pessoas", $pessoa);
 		}
 	}
 }

@@ -12,12 +12,13 @@ class UsuarioController extends Controller{
 		$this->usuarios = new Usuario();
 	}
 	public function index(){
-		$this->app->view('usuario', $this->usuarios->getPessoas());
+		$this->view('usuario', $this->usuarios->getPessoas());
 	}
 	public function addPessoa(){
-		$dados = $this->_get('pessoa');
+		$dados = $this->app->_get('pessoa');
 		if (!empty($dados)){
 			$dados = array(json_decode($dados, true));
+
 			$this->usuarios->setPessoas($dados);
 
 			$this->app->redireciona("usuario");
@@ -27,7 +28,7 @@ class UsuarioController extends Controller{
 		}
 	}
 	public function addUsuario(){
-		$dados = $this->_get('usuario');
+		$dados = $this->app->_get('usuario');
 		if (!empty($dados)){
 			$dados = array(json_decode($dados, true));
 			$this->usuarios->setUsuarios($dados);

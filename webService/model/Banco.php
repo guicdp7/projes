@@ -14,8 +14,8 @@ class Banco extends Ajuda{
 	}	
     public function getCurrentTimeStamp(){
 		$res = $this->query("select CURRENT_TIMESTAMP() as time");
-		$data = $res->fetch_assoc();
-        return $data['time'];
+		$data = $this->fetch_assoc($res);
+        return $data[0]['time'];
     }
     public function getUserIP() {
         $ipaddress = null;
@@ -47,8 +47,8 @@ class Banco extends Ajuda{
 			$res = $this->select("id", "ips", 'ip = "'.$ipaddress.'"');
 
             if (count($res)){
-                $this->update('ips', array(array('chave'=>'ultimo_acesso','valor'=>$this->getCurrentTimeStamp())), 'id = '.$res['id']);
-                return $res['id'];
+                $this->update('ips', array(array('chave'=>'ultimo_acesso','valor'=>$this->getCurrentTimeStamp())), 'id = '.$res[0]['id']);
+                return $res[0]['id'];
             }
             else{
                 $res = $this->insert('ips', array(array('chave'=>'ip','valor'=>$ipaddress)));
@@ -81,7 +81,7 @@ class Banco extends Ajuda{
 		$sql .= "$chaves) values ($valores)";
 		return $this->query($sql);
 	}
-	public function query($sql){		
+	public function query($sql){
 		$conexao = new mysqli($this->host, $this->nomeDeUsuario, $this->senha, $this->nomeDoBanco);
 		if ($conexao->connect_error){
 			$this->Erro(array("Erro ao conectar ao banco de dados:", $conexao->connect_error));
@@ -97,6 +97,13 @@ class Banco extends Ajuda{
 				return $res;
 			}
 		}
+	}
+	public function fetch_assoc($query){
+		$res = array();
+		while ($data = $query->fetch_assoc()){
+			$res[] = $data;
+		}
+		return $res;
 	}
 	public function select($itens = array(), $from, $where = null, $order = null){
 		$sql = "select ";
@@ -130,7 +137,7 @@ class Banco extends Ajuda{
 			return array();
 		}
 		else {
-			return $res->fetch_assoc();
+			return $this->fetch_assoc($res);
 		}
 	}
 	public function update($tabela, $itens, $where = null){
