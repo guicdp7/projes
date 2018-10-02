@@ -13,6 +13,7 @@ class Ajuda{
 		if (empty($motivo) || gettype($motivo) != "array"){
 			switch($codigo){
 				case "0x0000000001": $motivo = "Nenhum dado recebido"; break;
+				case "0x0000000002": $motivo = "Credenciais inválidas"; break;
 				default: $motivo = "Desconhecido"; 
 					if (empty($codigo)){
 						$codigo = "0x".md5($motivo);

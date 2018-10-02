@@ -12,7 +12,24 @@ class UsuarioController extends Controller{
 		$this->usuarios = new Usuario();
 	}
 	public function index(){
-		$this->view('usuario', $this->usuarios->getPessoas());
+		$usuario = $this->app->_request('usuario');
+		$senha = $this->app->_request('senha');
+
+		if (!empty($usuario) && !empty($senha)){
+			$senha = md5($senha);
+
+			$res = $this->usuarios->getUsuarios("(email = '$usuario' or login = '$usuario') and senha = '$senha'", null, "nome", array('pessoas', 'emails'));
+
+			if (count($res)){
+				$this->view('usuario', $res);
+			}
+			else{
+				$this->usuarios->Erro(null, "0x0000000002");
+			}
+		}
+		else{
+			$this->usuarios->Erro(null, "0x0000000001");
+		}
 	}
 	public function addPessoa(){
 		$dados = $this->app->_get('pessoa');

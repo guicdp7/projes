@@ -105,7 +105,7 @@ class Banco extends Ajuda{
 		}
 		return $res;
 	}
-	public function select($itens = array(), $from, $where = null, $order = null){
+	public function select($itens = array(), $from, $where = null, $order = null, $join = null){
 		$sql = "select ";
 		if (gettype($itens) == "string"){
 			$itens = array($itens);
@@ -117,6 +117,13 @@ class Banco extends Ajuda{
 			$sql .= $itens[$i].", ";
 		}
 		$sql .= $itens[$i]." from ".$from." ";
+		if (!empty($join)){
+			for($i = 0; $i < count($join); $i++){
+				$jo = $join[$i];
+
+				$sql .= $jo['tipo'] . " JOIN " . $jo['tabela'] . " ON (" . $jo['condicao'] . ") ";
+			}
+		}
 		if (!empty($where)){
 			$sql .= "where ";
 			if (gettype($where) == "string"){
