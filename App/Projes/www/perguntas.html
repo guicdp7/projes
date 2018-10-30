@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Perguntas - Projes</title>
+</head>
+<body>
+    <header class="header">
+        <div include-html="header.html"></div>
+    </header>
+
+    <main class="mt-5">
+        <form class="container" id="formPergunta" style="display: none;">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <h3 id="tbPergunta">Qual é a pergunta que eu não sei a resposta?</h3>
+                </div>
+                <div class="col-12">
+                    <fieldset class="form-group">
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="resposta" id="resposta-1">
+                            <label id="lbr1" class="form-check-label" for="resposta-1">
+                                Resposta 1
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="resposta" id="resposta-2">
+                            <label id="lbr2" class="form-check-label" for="resposta-2">
+                                Resposta 2
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="resposta" id="resposta-3">
+                            <label id="lbr3" class="form-check-label" for="resposta-3">
+                                Resposta 3
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="resposta" id="resposta-4">
+                            <label id="lbr4" class="form-check-label" for="resposta-4">
+                                Resposta 4
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-12">
+                    <p class="mensagem-acerto text-center mb-1 d-none">Você acertou</p>
+                    <p class="mensagem-erro text-center mb-1 d-none">Você errou</p>
+                    <button type="submit" class="btn btn-submit mt-5 py-2">Verificar</button>
+                </div>
+            </div>
+        </form>
+    </main>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/global.js"></script>
+    <script type="text/javascript" src="scripts/perguntas.js"></script>
+</body>
+</html>

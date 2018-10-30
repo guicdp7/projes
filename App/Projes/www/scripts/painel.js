@@ -4,20 +4,30 @@
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
 
     function onDeviceReady() {
-        if (!thisUser) {
+        if (thisUser) {
             includeHTML(function () {
                 // Manipular eventos de pausa e retomada do Cordova
                 document.addEventListener('pause', onPause.bind(this), false);
                 document.addEventListener('resume', onResume.bind(this), false);
                 document.addEventListener("backbutton", onBackButtonClick, false);
 
-                formJogar.addEventListener('submit', formJogarSubmit, false);
+                btNovo.addEventListener('click', btNovoClick, false);
+                btPlacar.addEventListener('click', btPlacarClick, false);
+                btSair.addEventListener('click', btSairClick, false);
+
+                tbNomeUser.innerHTML = thisUser.nome;
+                if (!thisUser.recorde) {
+                    thisUser.recorde = 0;
+                }
+                if (thisUser.recorde == 0) {
+                    pRecorde.style.display = "none";
+                }
 
                 _AoIniciar();
             });
         }
         else {
-            location.href = "painel.html";
+            location.href = "index.html";
         }
     };
 
@@ -29,10 +39,13 @@
         // TODO: este aplicativo foi reativado. Restaure o estado do aplicativo aqui.
     };
     /*Eventos*/
-    function formJogarSubmit(e) {
-        e.preventDefault();
-        thisUser = { nome: formJogar.nome.value };
-        setLogin(thisUser);
-        location.href = "painel.html";
+    function btNovoClick() {
+        location.href = "perguntas.html";
+    };
+    function btPlacarClick() {
+
+    };
+    function btSairClick() {
+        logOut();
     };
 } )();

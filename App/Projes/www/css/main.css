@@ -1,0 +1,73 @@
+body {
+  font-family: 'Roboto Slab', serif;
+  background-color: #f2eada;
+  display: none;
+}
+
+.header {
+  background-color: #383530;
+}
+.header h2 {
+  color: #ccc8c3;
+}
+
+.input-login {
+  border: none;
+  border-bottom: 1px solid #383530;
+  background: transparent;
+}
+
+.input-login::placeholder {
+  opacity: 0.3;
+  font-size: 14px;
+}
+
+.input-login:focus, .input-login:active {
+  border: none;
+  border-bottom: 1px solid #efa513;
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+}
+
+.btn-submit {
+  min-width: 100%;
+  background-color: #383530;
+  color: #ccc8c3 !important;
+}
+
+.btn-submit:focus, .btn-submit:active {
+  box-shadow: none;
+  outline: none;
+}
+
+.foto-circle {
+  position: absolute;
+  top: 30vh;
+  left: 50%;
+}
+
+.foto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #383530;
+  box-shadow: 0 1px 1px 0 #383530;
+  background-image: url(../images/user-icon.png),
+  linear-gradient(to bottom, #f2eada, #383530);
+  transform: translate(-50%, -50%);
+}
+
+.bloco-up {
+  background-color: #33281b;
+  min-width: 100%;
+  height: 20vh;
+}
+
+.mensagem-acerto {
+  color: green;
+}
+
+.mensagem-erro {
+  color: red;
+}

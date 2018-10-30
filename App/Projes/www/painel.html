@@ -9,29 +9,39 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <title>Login - Projes</title>
+    <title>Painel - Projes</title>
 </head>
 <body>
     <header class="header">
         <div include-html="header.html"></div>
     </header>
-    <main class="mt-5">
-        <form class="container" id="formJogar">
+
+    <main>
+        <div class="bloco-up"></div>
+        <div class="foto-circle">
+            <div class="foto"></div>
+        </div>
+        <div class="container">
             <div class="row">
-                <div class="form-group col-12">
-                    <input type="text" class="form-control input-login" id="nome" placeholder="Nome de usuário" required>
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-submit mt-5 py-2">Jogar</button>
+                <div class="col-12 mt-5">
+                    <h1 id="tbNomeUser" class="text-center"></h1>
+                    <p id="pRecorde" class="text-center">Seu Recorde: <span id="tbPontos"></span></p>
                 </div>
             </div>
-        </form>
+            <div class="row">
+                <div class="col-12">
+                    <a id="btNovo" class="btn btn-submit py-2 mt-5 mb-4">Novo Jogo</a>
+                    <a id="btPlacar" class="btn btn-submit py-2 mb-4">Placar de líderes</a>
+                    <a id="btSair" class="btn btn-submit py-2 mb-4">Sair</a>
+                </div>
+            </div>
+        </div>
     </main>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
     <script type="text/javascript" src="scripts/jquery-3.0.0.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/global.js"></script>
-    <script type="text/javascript" src="scripts/index.js"></script>
+    <script type="text/javascript" src="scripts/painel.js"></script>
 </body>
 </html>
