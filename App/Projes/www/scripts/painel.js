@@ -15,7 +15,7 @@
                 btPlacar.addEventListener('click', btPlacarClick, false);
                 btSair.addEventListener('click', btSairClick, false);
 
-                tbNomeUser.innerHTML = thisUser.nome;
+                console.log(thisUser);
                 if (!thisUser.recorde) {
                     thisUser.recorde = 0;
                 }

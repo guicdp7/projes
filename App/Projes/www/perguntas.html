@@ -20,43 +20,59 @@
         <form class="container" id="formPergunta" style="display: none;">
             <div class="row">
                 <div class="col-12 mb-5">
-                    <h3 id="tbPergunta">Qual é a pergunta que eu não sei a resposta?</h3>
+                    <h3 id="tbPergunta"></h3>
                 </div>
                 <div class="col-12">
                     <fieldset class="form-group">
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="radio" name="resposta" id="resposta-1">
-                            <label id="lbr1" class="form-check-label" for="resposta-1">
-                                Resposta 1
-                            </label>
+                            <label id="lbr1" class="form-check-label" for="resposta-1"></label>
                         </div>
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="radio" name="resposta" id="resposta-2">
-                            <label id="lbr2" class="form-check-label" for="resposta-2">
-                                Resposta 2
-                            </label>
+                            <label id="lbr2" class="form-check-label" for="resposta-2"></label>
                         </div>
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="radio" name="resposta" id="resposta-3">
-                            <label id="lbr3" class="form-check-label" for="resposta-3">
-                                Resposta 3
-                            </label>
+                            <label id="lbr3" class="form-check-label" for="resposta-3"></label>
                         </div>
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="radio" name="resposta" id="resposta-4">
-                            <label id="lbr4" class="form-check-label" for="resposta-4">
-                                Resposta 4
-                            </label>
+                            <label id="lbr4" class="form-check-label" for="resposta-4"></label>
                         </div>
                     </fieldset>
                 </div>
                 <div class="col-12">
                     <p class="mensagem-acerto text-center mb-1 d-none">Você acertou</p>
                     <p class="mensagem-erro text-center mb-1 d-none">Você errou</p>
-                    <button type="submit" class="btn btn-submit mt-5 py-2">Verificar</button>
+                    <button id="btVerifica" type="submit" style="display: none;" class="btn btn-submit mt-5 py-2">Responder</button>
                 </div>
             </div>
         </form>
+        <div id="divResultados" class="container" style="display: none;">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <h3 id="tbResTit">Resultados:</h3>
+                </div>
+                <div class="col-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>N&ordm;</th>
+                                <th>Status</th>
+                                <th>Pontos</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabResus"></tbody>
+                    </table>
+
+                    <h2>Sua Pontuação: <span id="spPontos"></span></h2>
+                    <h3 id="h3Desc"></h3>
+                    <button id="btNovo" type="submit" class="btn btn-submit mt-5 py-2">Novo Jogo</button>
+                    <button id="btVoltar" type="submit" class="btn btn-submit mt-5 py-2">Voltar</button>
+                </div>
+            </div>
+        </div>
     </main>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>

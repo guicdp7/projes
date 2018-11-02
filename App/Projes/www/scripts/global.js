@@ -12,11 +12,49 @@ var Pagina, thisUser = false, Perguntas = [
     ["“Um documento estruturado estabelecendo descrições detalhadas das funções, serviços e restrições operacionais do sistema. Define o que deve ser implementado e assim, pode ser parte de um contrato entre o cliente e o desenvolvedor”. A informação acima está descrevendo que tipo de requisito?",
         ["Requisito funcional",
             "Requisito de usuário",
-            "Requisito de sistema"], "Requisito não funcional"]
+            "Requisito de sistema"], "Requisito não funcional"],
+    ["Em que momento surgiu a engenharia de software?",
+        ["Na segunda Guerra Mundial",
+            "Na guerra Fria",
+            "No Bug do milênio"], "A partir da crise do software nos anos 70"],
+    ["Quais são os atributos de um bom software?",
+        ["Funcionar além do esperado, para surpreender o usuário.",
+            "Processamento rápido, com um bom custo - benefício.",
+            "Gerar lucro, atender os requisitos."], "Funcionalidade e desempenho requisitados, além de ser fácil de manter e usar."],
+    ["Quais são as principais atividades da engenharia de software?",
+        ["Levantamento de requisitos; programação; testes; produção.",
+            "Levantamento de requisitos; Análise de software; Especificação do software; Validação do software.",
+            "Especificação de software; Análise de software; desenvolvimento de software; testes;"], "Especificação de software; desenvolvimento de software; Validação de software; evolução do software."],
+    ["Qual a diferença entre engenharia de software e ciências da computação?",
+        ["Ciência da computação foca com o lado prático do desenvolvimento e entrega de softwares úteis; Engenharia da computação foca a teoria e os fundamentos.",
+            "Ciência da computação foca na entrega de softwares úteis; Engenharia da computação foca nos testes automatizados.",
+            "Ciência da computação foca na análise de dados; Engenharia da computação foca na programação."], "Ciência da computação foca a teoria e os fundamentos; Engenharia da computação preocupa-se com o lado prático do desenvolvimento, e entrega de softwares úteis"],
+    ["Qual a diferença entre engenharia de software e engenharia de sistemas?",
+        ["Engenharia de software se preocupa com todos os aspectos do desenvolvimento de sistemas computacionais, incluindo engenharia de hardware, software e processo. Engenharia de sistemas é uma parte específica deste processo mais genérico.",
+            "Engenharia de sistemas foca na entrega de sistemas úteis. Engenharia de software foca na entrega de softwares úteis.",
+            "Engenharia de software foca na entrega de sistemas úteis. Engenharia de sistemas foca na entrega de softwares úteis."], "Engenharia de sistemas se preocupa com todos os aspectos do desenvolvimento de sistemas computacionais, incluindo engenharia de hardware, software e processo. Engenharia de software é uma parte específica deste processo mais genérico."],
+    ["O que é um requisito?",
+        ["É uma requisição de atividade de um sistema, todos os sistemas devem ter requisitos no final.",
+            "Um requisito é quando o sistema solicita informações de seus usuários, ou seja, quando um sistema requisita dados em um campo input e os armazena em determinado local na memória.",
+            "É quando o sistema possui uma api de integração, um requisito é basicamente uma requisição de uma api, ou seja, o sistema solicita dados através de uma URL, e a api retorna os dados requisitados pelo sistema."], "A descrição de uma função, algo que o sistema deve fazer ou que ele deve evitar fazer, basicamente os requisitos são suas necessidades."],
+    ["O que são requisitos de domínio?",
+        ["É quando um sistema domina certa função, quando o cliente precisa que o sistema execute uma certa atividade que deve ser muito bem executada.",
+            "São os requisitos que não estão diretamente ligados as funções (métodos) do sistema (Exemplos: O sistema precisa estar conectado a internet o tempo todo, O Sistema deve ser criptografado, O sistema não pode ser muito pesado).",
+            "Se um sistema possui o requisito de domínio ele deve ser muito atrativo ao usuário, ao ponto de dominar seu usuário fazendo com que ele o use cada vez mais, ou seja, quando um sistema tem esse tipo de requisito ele tende a viciar quem o usa (Exemplos: Jogos, Aplicativos de Streaming)"], "São funções que o sistema deve possuir e que estão relacionadas ao domínio do sistema (exemplos: a fórmula para o cálculo de impostos para um sistema de contabilidade, as fórmulas matemáticas para obter os medicamentos corretos em um sistema de medicina)."],
+    ["O que são requisitos funcionais?",
+        ["Requisitos funcionais e requisitos de domínio são a mesma coisa.",
+            "Os requisitos funcionais estão relacionados as atividades operacionais de um software. Exemplos: Operações matemáticas, operações visuais...",
+            "Os requisitos não funcionais não são a mesma coisa que os requisitos de domínio, porem os requisitos funcionais não contribuem com o funcionamento de um jogo por exemplo."], "São os requisitos que resultam em funções explicitas do sistema, por exemplo: cadastro de clientes, cálculo de notas..."],
+    ["No que XP é baseado?",
+        ["O XP (Windows XP) é um sistema operacional legado desenvolvido pela empresa Microsoft na década de 90 quando os computadores pessoais ainda não tinham tanta capacidade de processamento.",
+            "No mundo dos games o XP foi baseado nas pontuações dos personagens jogáveis, quanto mais XP você conseguir no jogo mais seu personagem será evoluido.",
+            "O XP foi baseado no treinamento de diverssos programadores que desenvolviam vários sistemas ao mesmo tempo, por esse motivo ele viviam estressados."], "O XP (Extreme Programming) é baseado na simplicidade e rapidez já que tudo é desenvolvido e testado ao mesmo tempo com casos reais."]
 ];
 
 /*Atribuições Globais*/
-function sortFun(a, b) { return a > b ? true : false; };
+function sortFun(a, b) {
+    return Math.floor(Math.random() * 3 + -1);
+};
 $(document).ready(function () {
     thisUser = isLogado();
 });
