@@ -1,6 +1,6 @@
 ﻿"use strict";
 /*Variáveis Globais*/
-var Pagina, thisUser = false, Perguntas = [
+var Pagina, thisUser = false, lideres = [], Perguntas = [
     ["Qual a ordem das camadas em uma tecnologia em camadas?",
         ["Processos - Métodos - Ferramentas - Foco na Qualidade",
             "Métodos - Processos - Ferramentas - Foco na Qualidade",
@@ -74,6 +74,7 @@ function _AoIniciar() {
 
     switch (Pagina.replace(".html", "")) {
         case "painel": appTitulo.innerHTML = "Bem vindo(a) " + thisUser.nome + "!"; break;
+        case "lideres": appTitulo.innerHTML = "Placar de Lideres"; break;
     }
     
     $('body').fadeIn('slow');

@@ -92,6 +92,28 @@
                         setLogin(thisUser);
                         h3Desc.innerHTML = "Parabêns, você possui um novo recorde!";
                     }
+                    var vg = new VarGlobal("lideres"), hj = new Date();
+                    if (vg.obterLocal()) {
+                        lideres = JSON.parse(vg.obterLocal());
+                    }
+                    var data = { "pt": totalPtos, "nm": thisUser.nome, "dt": hj.getDate() + "/" + (hj.getMonth() + 1) + "/" + hj.getFullYear() };
+                    if (lideres.length == 0) {
+                        lideres.push(data);
+                    }
+                    else {
+                        var add = false;
+                        for (var i = 0; i < lideres.length; i++) {
+                            if (Number(lideres[i].pt) < Number(totalPtos)) {
+                                add = true;
+                                lideres.splice(i, 0, data);
+                                break;
+                            }
+                        }
+                        if (add == false) {
+                            lideres.push(data);
+                        }
+                    }
+                    vg.salvarLocal(JSON.stringify(lideres));
                     $(divResultados).fadeIn("slow");
                 }
             });

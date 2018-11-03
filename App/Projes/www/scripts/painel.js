@@ -18,10 +18,12 @@
                 console.log(thisUser);
                 if (!thisUser.recorde) {
                     thisUser.recorde = 0;
+                    setLogin(thisUser);
                 }
                 if (thisUser.recorde == 0) {
                     pRecorde.style.display = "none";
                 }
+                tbPontos.innerHTML = thisUser.recorde;
 
                 _AoIniciar();
             });
@@ -43,7 +45,7 @@
         location.href = "perguntas.html";
     };
     function btPlacarClick() {
-
+        location.href = "lideres.html";
     };
     function btSairClick() {
         logOut();

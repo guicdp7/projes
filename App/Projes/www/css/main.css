@@ -53,9 +53,12 @@ body {
   border-radius: 50%;
   border: 1px solid #383530;
   box-shadow: 0 1px 1px 0 #383530;
-  background-image: url(../images/user-icon.png),
-  linear-gradient(to bottom, #f2eada, #383530);
+  background-image: url(../images/projes.png);
   transform: translate(-50%, -50%);
+  background-size: 70% 70%;
+  background-color: #fff;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .bloco-up {

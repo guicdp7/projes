@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Placar de Lideres - Projes</title>
+</head>
+<body>
+    <header class="header">
+        <div include-html="header.html"></div>
+    </header>
+
+    <main class="mt-5">
+        <div id="divResultados" class="container" style="display: none;">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <h3 id="tbResTit">Resultados:</h3>
+                </div>
+                <div class="col-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>N&ordm;</th>
+                                <th>Usuario</th>
+                                <th>Pontos</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabResus"></tbody>
+                    </table>
+                    <button id="btNovo" type="submit" class="btn btn-submit mt-5 py-2">Novo Jogo</button>
+                    <button id="btVoltar" type="submit" class="btn btn-submit mt-5 py-2">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/global.js"></script>
+    <script type="text/javascript" src="scripts/lideres.js"></script>
+</body>
+</html>
